@@ -1,6 +1,12 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
 
 export default function CTA() {
+  const handleContactClick = () => {
+    window.location.href = "mailto:contact@bilabsconseil.com";
+  };
+
   return (
     <section id="contact" className="relative bg-[#030514] py-36 overflow-hidden">
       {/* Glow */}
@@ -33,10 +39,13 @@ export default function CTA() {
 
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-up delay-300 w-full sm:w-auto">
-          <a href="mailto:contact@bilabs-conseil.fr"
-            className="w-full sm:w-auto btn-primary px-10 py-4 text-base shadow-[0_0_40px_rgba(99,102,241,0.3)]">
+          <button
+            type="button"
+            onClick={handleContactClick}
+            className="w-full sm:w-auto btn-primary px-10 py-4 text-base shadow-[0_0_40px_rgba(99,102,241,0.3)]"
+          >
             Réserver ma session offerte
-          </a>
+          </button>
           <a href="#services" className="w-full sm:w-auto text-white hover:text-indigo-400 flex items-center justify-center gap-2 font-medium transition-colors">
             Explorer les expertises <ArrowRight className="w-4 h-4" />
           </a>
