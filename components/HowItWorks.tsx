@@ -91,19 +91,63 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        {/* App Showcase illustration (matches the phone UI in the bottom of that section) */}
-        <div className="mt-32 max-w-4xl mx-auto flex flex-col items-center">
-          <div className="relative w-[300px] h-[400px] rounded-t-3xl border border-white/10 border-b-0 bg-[#080c1f] overflow-hidden shadow-2xl flex flex-col items-center pt-8">
-            {/* Fake phone notch */}
-            <div className="absolute top-2 w-1/3 h-5 bg-black rounded-full flex items-center justify-between px-3">
-              <div className="w-2 h-2 rounded-full bg-white/20"></div>
-              <div className="w-2 h-2 rounded-full bg-white/20"></div>
+        {/* Dashboard Preview */}
+        <div className="mt-32 max-w-4xl mx-auto">
+          <div className="relative rounded-2xl border border-white/10 bg-brand-card/80 backdrop-blur-xl overflow-hidden shadow-2xl p-6">
+            {/* Inner glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-32 bg-indigo-600/10 blur-3xl pointer-events-none" />
+
+            {/* Window chrome */}
+            <div className="flex items-center justify-between mb-6 relative z-10">
+              <div className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/70" />
+              </div>
+              <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Tableau de bord — BILABS SI</span>
+              <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
             </div>
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 mt-10 flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.5)]">
-              <span className="text-white font-bold text-xl">B</span>
+
+            {/* KPI row */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 relative z-10">
+              {[
+                { label: "Projets actifs", value: "12", delta: "+3 ce mois", color: "text-blue-400", bar: "bg-blue-500", pct: 75 },
+                { label: "Uptime SI", value: "99.8%", delta: "stable", color: "text-emerald-400", bar: "bg-emerald-500", pct: 99 },
+                { label: "Incidents résolus", value: "47", delta: "ce mois", color: "text-indigo-400", bar: "bg-indigo-500", pct: 88 },
+                { label: "Formations suivies", value: "8", delta: "+2 équipes", color: "text-purple-400", bar: "bg-purple-500", pct: 60 },
+              ].map((kpi, i) => (
+                <div key={i} className="rounded-xl border border-white/6 bg-white/3 p-4 flex flex-col gap-2">
+                  <span className="text-[10px] uppercase tracking-wider text-slate-500 font-mono">{kpi.label}</span>
+                  <span className={`text-2xl font-bold ${kpi.color}`}>{kpi.value}</span>
+                  <div className="w-full h-1 rounded-full bg-white/5 overflow-hidden">
+                    <div className={`h-full rounded-full ${kpi.bar} opacity-60`} style={{ width: `${kpi.pct}%` }} />
+                  </div>
+                  <span className="text-[10px] text-slate-500">{kpi.delta}</span>
+                </div>
+              ))}
             </div>
-            <h3 className="mt-6 text-xl font-bold text-white text-center px-4">Transformer votre IT,<br />Étape par étape</h3>
-            <div className="mt-auto w-full h-[50%] bg-gradient-to-t from-blue-900/40 to-transparent"></div>
+
+            {/* Activity chart */}
+            <div className="relative z-10 rounded-xl border border-white/6 bg-white/2 p-4">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-semibold text-white">Activité du projet</span>
+                <span className="text-[10px] text-slate-500 font-mono">7 derniers jours</span>
+              </div>
+              <div className="flex items-end gap-2 h-16">
+                {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
+                  <div
+                    key={i}
+                    className="flex-1 rounded-sm bg-linear-to-t from-indigo-600/60 to-blue-400/30"
+                    style={{ height: `${h}%` }}
+                  />
+                ))}
+              </div>
+              <div className="flex justify-between mt-2">
+                {["L", "M", "M", "J", "V", "S", "D"].map((d, i) => (
+                  <span key={i} className="flex-1 text-center text-[9px] text-slate-600 font-mono">{d}</span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 

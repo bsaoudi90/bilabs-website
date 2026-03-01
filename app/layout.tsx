@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   title: "BILABS CONSEIL — Conseil IT, Data Science & Formation",
   description:
     "BILABS CONSEIL accompagne les entreprises dans leur transformation numérique : conseil informatique, Business Intelligence, développement d'applications et formations certifiantes.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

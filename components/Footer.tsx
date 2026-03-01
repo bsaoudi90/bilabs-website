@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const footerLinks = {
   Services: [
     "Conseil IT & Technologique",
@@ -24,8 +26,8 @@ export default function Footer() {
           {/* Brand & Description */}
           <div className="flex flex-col gap-6 max-w-sm">
             <a href="#" className="flex items-center gap-2 group w-fit">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#ffffff] to-[#a1a1aa] flex items-center justify-center">
-                <div className="w-4 h-4 bg-[#030514] rounded-sm transform rotate-45 group-hover:rotate-90 transition-transform duration-500"></div>
+              <div className="relative w-12 h-12 flex items-center justify-center">
+                <Image src="/logo.png" alt="Bilabs Conseil Logo" fill className="object-contain brightness-0 invert" />
               </div>
               <span className="font-inter text-xl font-bold tracking-tight text-white">
                 Bilabs<span className="text-gray-400 font-normal">Conseil</span>
